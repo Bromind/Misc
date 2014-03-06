@@ -38,7 +38,7 @@ preexec(){
   battery=`acpi -b | cut -d " " -f4 | cut -d "%" -f1`
   ac=`acpi -b | cut -d "%" -f2 | cut -d " " -f2`
 
-  if [ "$ac" = "" ] ; then # is loading
+  if [ "`echo $ac | grep "remaining"`" = "" ] ; then # is loading
     color="green"
     display="%B$battery%b"
   else 
